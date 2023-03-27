@@ -13,7 +13,6 @@
 </v-layout>
   </div>
 
-<body>
 <div Align=center>
   <h1>Auto Learning</h1>
 </div>
@@ -32,7 +31,6 @@
   </v-card-text>
 </v-card>
 
-</body>
 </template>
 
 <script setup>
