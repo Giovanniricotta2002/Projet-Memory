@@ -6,6 +6,7 @@ export const CategoryStore = defineStore('categoryS', {
         return {
             category: [],
             length: 0,
+            synopsis: ""
         }
     },
     getters: {
@@ -15,6 +16,7 @@ export const CategoryStore = defineStore('categoryS', {
         getCategoryName: (state) => {
             return (categorieId) => state.category.find((categorie) => categorie.id === categorieId)
         },
+        getSynopisi: (state) => { return state.synopsis}
     },
     actions: {
         addCategory(){
@@ -24,6 +26,10 @@ export const CategoryStore = defineStore('categoryS', {
         setNomCategory(name, index) {
             console.log(name, index);
             this.category[index].name = name
+        },
+
+        setSynopisi(value) {
+            this.synopsis = value
         }
     }
   })

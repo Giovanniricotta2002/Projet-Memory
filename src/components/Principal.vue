@@ -26,7 +26,7 @@
   <v-card-text>
     <div> ici tu peut créer tes propre thèmes <br> tes propres cartes <br> et réviser tes cartes</div>
       <v-card-actions>
-        <v-btn prepend-icon="mdi-message-text" variant="outlined" color="white">Voir les catégorie</v-btn>
+        <v-btn prepend-icon="mdi-message-text" variant="outlined" color="white" to="/category">Voir les catégorie</v-btn>
       </v-card-actions>
   </v-card-text>
 </v-card>
