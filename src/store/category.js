@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia'
 
+import { CarteStore } from './carte'
+
+const carte = CarteStore()
 
 export const CategoryStore = defineStore('categoryS', {
     state: () => {
         return {
             category: [],
             length: 0,
-            synopsis: ""
         }
     },
     getters: {
@@ -16,20 +18,23 @@ export const CategoryStore = defineStore('categoryS', {
         getCategoryName: (state) => {
             return (categorieId) => state.category.find((categorie) => categorie.id === categorieId)
         },
-        getSynopisi: (state) => { return state.synopsis}
+        getSynopisi: (state) => { return (categorieId)=> state.category.find((categorie) => categorie.id === categorieId)},
+        getAllCarteById: () => {return (d) => {return carte.getAllCarteById(d)} }
     },
     actions: {
         addCategory(){
-            this.length += 1
-            this.category.push({name: '', id: this.length})
+            this.category.push({name: '', id: this.length++, synopsis: ""})
         },
         setNomCategory(name, index) {
-            console.log(name, index);
             this.category[index].name = name
         },
 
-        setSynopisi(value) {
-            this.synopsis = value
+        setSynopisi(value, index) {
+            this.category[index].synopsis = value
+        },
+
+        setCarte(recto, verso, index){
+           carte.setCarte(recto, verso, this.category.find((categorie) => categorie.id === index))
         }
     }
   })
