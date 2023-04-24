@@ -14,23 +14,59 @@
   </div>
 
 <div Align=center>
-  <h1>Auto Learning</h1>
+  <h1>Auto Learning </h1>
 </div>
-<v-card color="light-blue" width="400">
+<v-card color="light-blue" width=100% ms-2>
+  <div align ="center">
   <v-card-text>
-    <div> ici tu peut visionner les jour ou tu a réussi <br> les différent thèmes <br> ainsi que le nombre de jour réussi consécutive </div>
-      <v-card-actions>
-          <v-btn prepend-icon="mdi-dialpad" variant="outlined" color="white">Voir le calendrier</v-btn>
-      </v-card-actions>
+    <div> ici tu peut visionner les jour ou tu a réussi <br> les différents niveaux de difficulté <br> ainsi que le nombre de jour réussi consécutive </div>
+    <v-btn prepend-icon="mdi-dialpad" variant="outlined" color="white" to="/calendar">Voir le calendrier</v-btn>
   </v-card-text>
   <v-card-text>
-    <div> ici tu peut créer tes propre thèmes <br> tes propres cartes <br> et réviser tes cartes</div>
-      <v-card-actions>
-        <v-btn prepend-icon="mdi-message-text" variant="outlined" color="white" to="/category">Voir les catégorie</v-btn>
-      </v-card-actions>
+    <div> ici tu peut créer tes propres thèmes <br> tes propres cartes <br> et réviser tes cartes</div>
+    <v-btn prepend-icon="mdi-message-text" variant="outlined" color="white" to="/category">Voir les catégorie</v-btn>
   </v-card-text>
+  </div>
 </v-card>
+<v-card color="light-blue">
+  <v-timeline direction="horizontal">
+    <v-timeline-item color>
+      <template v-slot:opposite>
+        
+      </template>
+      <div>
+        <div class="text-h6">1</div>
+        <p>
+          commence par créer tes cards pour l'apprentissage
+        </p>
+      </div>
+    </v-timeline-item>
 
+    <v-timeline-item>
+      <template v-slot:opposite>
+        
+      </template>
+      <div>
+        <div class="text-h6">2</div>
+        <p>
+          une fois réussi tu passe au niveau 2 tout les 2 jours puis niveau 3 tout les 4 jours ect...
+        </p>
+      </div>
+    </v-timeline-item>
+
+    <v-timeline-item>
+      <template v-slot:opposite>
+        
+      </template>
+      <div>
+        <div class="text-h6">3</div>
+        <p>
+          Un apprentissage très efficace sur le long terme
+        </p>
+      </div>
+    </v-timeline-item>
+  </v-timeline>
+</v-card>
 </template>
 
 <script setup>
