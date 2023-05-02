@@ -26,6 +26,10 @@
     <div> ici tu peut créer tes propres thèmes <br> tes propres cartes <br> et réviser tes cartes</div>
     <v-btn prepend-icon="mdi-message-text" variant="outlined" color="white" to="/category">Voir les catégorie</v-btn>
   </v-card-text>
+  <v-card-text>
+    <div> ici tu peut jouer <br> tes propres cartes </div>
+    <v-btn prepend-icon="mdi-controller" variant="outlined" color="white" to="/game">joue avec tes cards</v-btn>
+  </v-card-text>
   </div>
 </v-card>
 <v-card color="light-blue">
@@ -67,8 +71,19 @@
     </v-timeline-item>
   </v-timeline>
 </v-card>
+<v-expansion-panels>
+  <v-expansion-panel title="Catégories">
+    <v-expansion-panel-text v-for="c in category.getCategory">
+      nom de la categorie : {{ c.name }} 
+      son synopsis : {{ c.synopsis }}
+      <v-checkbox label="Choisir cette catégorie"></v-checkbox>
+    </v-expansion-panel-text>
+  </v-expansion-panel>
+</v-expansion-panels>
 </template>
 
 <script setup>
-import HelloWorld from '@/components/Principal.vue'
+import { CategoryStore } from '../store/category.js'
+const index = 0
+const category = CategoryStore()
 </script>

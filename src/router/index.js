@@ -23,6 +23,10 @@ const routes = [
   {
     path: '/calendar',
     component: () => import('../views/calendar.vue')
+  },
+  {
+    path: '/game',
+    component: () => import('../views/game.vue')
   }
 ]
 
