@@ -5,8 +5,10 @@
 
             </v-card-item>
             <v-card-text>
-                <v-btn variant="tonal" color="lightblue" @click="category.addCategory()">Créer une Catégorie</v-btn>
+                <v-btn variant="tonal" color="lightblue" @click="test()">Créer une Catégorie</v-btn>
                 <v-btn variant="tonal" color="lightblue" to="/">Home</v-btn>
+                <v-btn variant="tonal" color="lightblue" @click="category.init()">Update</v-btn>
+
 
                 <v-slide-group v-model="model" class="pa-4" selected-class="bg-primary" show-arrows>
                     <v-slide-group-item v-for="n, index in category.getCategory" :key="n.id"
@@ -31,14 +33,14 @@
                                         </v-col>
                                     </v-row>
                                     <v-row>
-                                        <v-col cols="2" md="3">
+                                        <v-col cols="2" md="3"> 
                                             <v-btn
                                                 @click="category.setNomCategory(toto, model), di = true, toto = ''">Validé</v-btn>
                                         </v-col>
                                         <v-col cols="5" md="7" style="width: 500px;">
                                             Selected {{ category.getCategory[model].name }}
                                         </v-col>
-                                        <v-col v-show="di">
+                                        <v-col v-show="di || category.getCategory[model].name.length > 0">
                                             <v-dialog v-model="dialog" width="auto">
                                                 <template v-slot:activator="{ props }">
                                                     <v-btn color="primary" v-bind="props" @click="gtest(model)"> Open
@@ -85,7 +87,8 @@
                                                         </v-row>
                                                         <v-row>
                                                             <v-col>
-                                                                <v-btn @click="setcarde(model), rector = '', verso = ''"> Sauvegardé</v-btn>
+                                                                <v-btn @click="setcarde(model), rector = '', verso = ''">
+                                                                    Sauvegardé</v-btn>
                                                             </v-col>
                                                         </v-row>
 
@@ -111,6 +114,7 @@
 <script>
 import { CategoryStore } from '../store/category.js'
 import { CarteStore } from '../store/carte'
+import { IndexedStore } from '@/store/indexeddb'
 
 //import { mapActions, mapState } from 'pinia'
 
@@ -134,29 +138,41 @@ export default ({
     },
     methods: {
         //...mapActions(CategoryStore, ["addCategory"])
-        Sauvegator(index) {
+        Sauvegator(index) { 
             this.category.setSynopisi(this.synosis, index);
         },
-        setcarde(index) {console.log(this.rector, this.verso, index);
+        setcarde(index) {
+            console.log(this.rector, this.verso, index);
             this.category.setCarte(this.rector, this.verso, index)
             this.gtest(index)
         },
         gtest(arg) {
+            console.log();
             this.dd = this.category.getAllCarteById(arg)
         },
+        test() {
+            this.category.init()
+            this.category.init()
+            this.category.init()
+            this.category.init()
+            this.category.addCategory()
+        }
     },
     setup() {
         const category = CategoryStore()
         const carte = CarteStore()
+        const indexedStore = IndexedStore()
 
-        return { category, carte }
+        return { category, carte, indexedStore }
     },
-    computed: {
+    computed() {
         //...mapState(CategoryStore, ["getCategory", ])
-
+        
     },
     mounted() {
         if (window.location.hostname == 'localhost') window.app = this
+        this.test()
+
     }
 })
 </script>
