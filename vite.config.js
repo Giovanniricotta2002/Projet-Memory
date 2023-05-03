@@ -38,4 +38,10 @@ export default defineConfig({
     },
     port: 3000,
   },
+  pwa:{
+    workboxPluginMode: "InjectManifest",
+    workboxOptions:{
+        swSrc:"./sw.js",
+    }
+  }
 })
