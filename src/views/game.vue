@@ -91,9 +91,11 @@
                         synopsis : {{ c.synopsis }}
                     </p>
                     <p>question :</p>
+                <v-card-text v-for="cart in dd" :key="cart">
                     <div class="text--primary">
-                        le bla bla de la question
+                        {{ cart.carteRecto }}
                     </div>
+                </v-card-text>
                 </v-card-text>
                 <v-card-actions>
                     <v-btn variant="text" color="teal-accent-4" @click="reveal = true">
@@ -122,9 +124,11 @@
 </template>
 
 <script setup>
+import { CarteStore } from '@/store/carte';
 import { CategoryStore } from '../store/category.js'
 const index = 0
 const category = CategoryStore()
+const carte = CarteStore()
 
 </script>
 
@@ -132,6 +136,11 @@ const category = CategoryStore()
   export default {
     data: () => ({
       reveal: false,
+      dd: null,
     }),
+    gtest(arg) {
+        console.log();
+        this.dd = this.category.getAllCarteById(arg)
+    },
   }
 </script>

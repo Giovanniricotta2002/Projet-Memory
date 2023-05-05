@@ -76,14 +76,26 @@
     <v-expansion-panel-text v-for="c in category.getCategory">
       nom de la categorie : {{ c.name }} 
       son synopsis : {{ c.synopsis }}
-      <v-checkbox label="Choisir cette catégorie"></v-checkbox>
+      <p>{{ selected }}</p>
+      <v-checkbox label="Choisir cette catégorie" v-model="selected" :value="c.idC">
+      </v-checkbox>
     </v-expansion-panel-text>
   </v-expansion-panel>
 </v-expansion-panels>
 </template>
 
-<script setup>
+<script>
 import { CategoryStore } from '../store/category.js'
-const index = 0
-const category = CategoryStore()
+export default({
+  data() {
+    return {
+      selected: '',
+      index: null
+   }
+  },
+setup(){
+  const category = CategoryStore()
+  return {category}
+}
+})
 </script>
