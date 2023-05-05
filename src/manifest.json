@@ -1,0 +1,29 @@
+{
+    "name": "Project Memory",
+    "short_name": "pm",
+    "start_url": "../index.html",
+    "display": "standalone",
+    "icons":[
+        {
+            "src": "assets/logo.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/logo2.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "related_applications": [
+      {
+        "platform": "web"
+      }
+    ],
+    "orientation": "landscape"
+}
