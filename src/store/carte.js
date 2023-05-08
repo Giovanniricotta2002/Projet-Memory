@@ -13,7 +13,7 @@ export const CarteStore = defineStore('CardStore', {
     getters: {
         getAllCarteByCarteId: (state) => {
             return (f) => { return state.carte.filter(carte => {
-                return carte.idCarte.idC === f
+                return carte.idCarte.id === f
             })}
         },
         getAllCarteById: (state) => {

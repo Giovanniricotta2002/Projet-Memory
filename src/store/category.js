@@ -19,7 +19,7 @@ export const CategoryStore = defineStore('categoryS', {
             return state.category
         },
         getCategoryName: (state) => {
-            return (categorieId) => state.category.find((categorie) => categorie.idc === categorieId)
+            return (categorieId) => state.category.find((categorie) => categorie.id === categorieId)
         },
         getSynopisi: (state) => { return (categorieId)=> state.category.find((categorie) => categorie.idc === categorieId)},
         getAllCarteById: () => {return (d) => {return carte.getAllCarteByCarteId(d)} }
@@ -48,7 +48,7 @@ export const CategoryStore = defineStore('categoryS', {
 
         setCarte(recto, verso, index){
             console.log(index);
-            carte.setCarte(recto, verso, this.category.find((categorie) => categorie.idC === index))
+            carte.setCarte(recto, verso, this.category.find((categorie) => categorie.id === index))
         }
     }
   })

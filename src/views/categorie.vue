@@ -43,7 +43,7 @@
                                         <v-col v-show="di || category.getCategory[model].name.length > 0">
                                             <v-dialog v-model="dialog" width="auto">
                                                 <template v-slot:activator="{ props }">
-                                                    <v-btn color="primary" v-bind="props" @click="gtest(model)"> Open
+                                                    <v-btn color="primary" v-bind="props" @click="gtest(category.getCategory[model].id)"> Open
                                                         Dialog</v-btn>
                                                 </template>
 
@@ -87,7 +87,7 @@
                                                         </v-row>
                                                         <v-row>
                                                             <v-col>
-                                                                <v-btn @click="setcarde(model), rector = '', verso = ''">
+                                                                <v-btn @click="setcarde(category.getCategory[model].id), rector = '', verso = ''">
                                                                     Sauvegardé</v-btn>
                                                             </v-col>
                                                         </v-row>
