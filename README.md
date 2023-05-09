@@ -1,6 +1,6 @@
 # default
 
-## Project setup
+## Installe toute les dépendence du project
 
 ```
 # yarn
@@ -13,7 +13,7 @@ npm install
 pnpm install
 ```
 
-### Compiles and hot-reloads for development
+### lance le programme
 
 ```
 # yarn
@@ -26,19 +26,27 @@ npm run dev
 pnpm dev
 ```
 
-### Compiles and minifies for production
+si l'application ne se lance pas aller dans package.json dans script -> build -> laisser la souris sur build et faire run
 
-```
-# yarn
-yarn build
+sur l'application il y a 3 boutons 1 pour créer des catégories 1 boutons pour jouer les cartes et le 3ème bouton pour regarder le calendrier
 
-# npm
-npm run build
+### bouton créer
 
-# pnpm
-pnpm build
-```
+- bouton créer une catégorie
 
-### Customize configuration
+- créer un recto qui sera la question
+- créer un verso qui sera la réponse
+- créer un synopsis qui sera le nom de la question (math,histoire ect...)
+- bouton sauvegarder pour sauvegarder le recto/verso et le synopsis
 
-See [Configuration Reference](https://vitejs.dev/config/).
+- bouton Update pour recharger les catégorie créer
+- bouton home pour revenir sur l'accueil
+
+### bouton jouer
+
+- il y a 3 question aléatoire qui vont apparaitre et pour chaque question il y aura une réponse sur le boutons verso
+
+### bouton calendrier 
+
+- affiche les victoire du joueur sur les jour réussi consecutive
+
