@@ -42,6 +42,8 @@ sur l'application il y a 3 boutons 1 pour créer des catégories 1 boutons pour 
 - bouton Update pour recharger les catégorie créer
 - bouton home pour revenir sur l'accueil
 
+remarque : pour retirer une catégorie c'est pas directement sur l'application
+
 ### bouton jouer
 
 - il y a 3 question aléatoire qui vont apparaitre et pour chaque question il y aura une réponse sur le boutons verso

@@ -14,7 +14,7 @@
             <v-card class="mx-auto" max-width="344">
                 <v-card-text>
                     <div class="text-h4 text--primary">Categorie 1: {{ category.getCategoryName(c.idCarte.id) }}</div>
-                    <p class="text-h6 text--primary"> synopsis : {{ c.idCarte.synopsis }} </p>
+                    <p class="text-h6 text--primary"> synopsis : {{ c.synopsis }} </p>
                     <p>question :</p>
                     <div class="text--primary">
                         {{ c.carteRecto }}
@@ -43,20 +43,18 @@
                 </v-expand-transition>
             </v-card>
         </v-carousel-item>
-        <!-- <v-carousel-item>
+        <v-carousel-item v-for="c in carte.getAllCarteById(2)">
             <v-card class="mx-auto" max-width="344">
-                <v-card-text v-for="c in category.getCategory">
-                    <div class="text-h4 text--primary">Question 2 : {{ c.name }}</div>
-                    <p class="text-h6 text--primary">
-                        synopsis : {{ c.synopsis }}
-                    </p>
+                <v-card-text>
+                    <div class="text-h4 text--primary">Categorie 2: {{ category.getCategoryName(c.idCarte.id) }}</div>
+                    <p class="text-h6 text--primary"> synopsis : {{ c.synopsis }} </p>
                     <p>question :</p>
                     <div class="text--primary">
-                        le bla bla de la question
+                        {{ c.carteRecto }}
                     </div>
                 </v-card-text>
                 <v-card-actions>
-                    <v-btn variant="text" color="teal-accent-4" @click="reveal = true">
+                    <v-btn variant="text" color="teal-accent-4" @click="reveal = !reveal">
                         Verso
                     </v-btn>
                 </v-card-actions>
@@ -65,9 +63,9 @@
                     <v-card v-if="reveal" class="v-card--reveal" style="height: 100%;">
                         <v-card-text class="pb-0">
                             <p class="text-h4 text--primary">
-                                Réponse : 
+                                Réponse :
                             </p>
-                            <p>le bla bla de la réponse</p>
+                            <p>{{ c.carteVerso }}</p>
                         </v-card-text>
                         <v-card-actions class="pt-0">
                             <v-btn variant="text" color="teal-accent-4" @click="reveal = false">
@@ -76,24 +74,20 @@
                         </v-card-actions>
                     </v-card>
                 </v-expand-transition>
-            </v-card>        
+            </v-card>
         </v-carousel-item>
-        <v-carousel-item>
+        <v-carousel-item v-for="c in carte.getAllCarteById(3)">
             <v-card class="mx-auto" max-width="344">
-                <v-card-text v-for="c in category.getCategory">
-                    <div class="text-h4 text--primary">Question 3 : {{ c.name }}</div>
-                    <p class="text-h6 text--primary">
-                        synopsis : {{ c.synopsis }}
-                    </p>
+                <v-card-text>
+                    <div class="text-h4 text--primary">Categorie 3: {{ category.getCategoryName(c.idCarte.id) }}</div>
+                    <p class="text-h6 text--primary"> synopsis : {{ c.synopsis }} </p>
                     <p>question :</p>
-                <v-card-text v-for="cart in dd" :key="cart">
                     <div class="text--primary">
-                        {{ cart.carteRecto }}
+                        {{ c.carteRecto }}
                     </div>
                 </v-card-text>
-                </v-card-text>
                 <v-card-actions>
-                    <v-btn variant="text" color="teal-accent-4" @click="reveal = true">
+                    <v-btn variant="text" color="teal-accent-4" @click="reveal = !reveal">
                         Verso
                     </v-btn>
                 </v-card-actions>
@@ -102,9 +96,9 @@
                     <v-card v-if="reveal" class="v-card--reveal" style="height: 100%;">
                         <v-card-text class="pb-0">
                             <p class="text-h4 text--primary">
-                                Réponse : 
+                                Réponse :
                             </p>
-                            <p>le bla bla de la réponse</p>
+                            <p>{{ c.carteVerso }}</p>
                         </v-card-text>
                         <v-card-actions class="pt-0">
                             <v-btn variant="text" color="teal-accent-4" @click="reveal = false">
@@ -113,8 +107,8 @@
                         </v-card-actions>
                     </v-card>
                 </v-expand-transition>
-            </v-card>        
-        </v-carousel-item> -->
+            </v-card>
+        </v-carousel-item>
     </v-carousel>
 </template>
 
